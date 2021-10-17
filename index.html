@@ -48,6 +48,16 @@
                <a-entity cursor="rayOrigin: mouse; fuseTimeout: 0";
                 raycaster="objects: .clickable; interval: 1000;"></a-entity>
             
+                 <a-entity
+                    id="banner"
+                    scale="1 1 1"
+                    rotation="0 0 0"
+                    position="0 2 -3"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#banner"
+                    class="clickable"
+                    clickhandler
+                ></a-entity>
             
             <a-entity camera>
                 
@@ -59,16 +69,7 @@
                     gesture-handler               
                 ></a-entity>
                 
-            <a-entity
-                    id="banner"
-                    scale="1 1 1"
-                    rotation="0 0 0"
-                    position="0 2 -3"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#banner"
-                    class="clickable"
-                    clickhandler
-                ></a-entity>
+ 
                      
             </a-entity>
                       
