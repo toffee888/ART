@@ -1,1 +1,69 @@
+<!doctype html>
+<html>
+
+    <title>AR Photo Contest</title>
+    <head>
+        <script src="aframe.min.js"></script>
+        <script src="aframe-ar.js"></script>
+        <script src="aframe-extras.loaders.min.js"></script>
+        <script src="gesture-detector.js"></script>
+        <script src="gesture-handler.js"></script>
+        <script src="model-viewer.js"></script>
+        <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+        
+    </head>
+
+    <body>
+        
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: true;
+                            dotsColor: black; 
+                            backgroundColor: white;"
+            renderer="logarithmicDepthBuffer: true;
+                      colorManagement: true;
+                      physicallyCorrectLights: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
+                  sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
+            id="scene"
+            embedded
+            gesture-detector
+            ;>
+            
+            <a-assets>
+                
+                <a-asset-item
+                    id="trophy"
+                    src="assets/test3.glb"
+                ></a-asset-item>
+                
+                <a-asset-item
+                    id="banner"
+                    src="assets/banner.glb"
+                ></a-asset-item>
+                
+            </a-assets>
+
+            
+            <a-entity camera>
+            
+                
+                
+            <a-entity
+                    id="1"
+                    rotation="180 45 179"
+                    position="-1 3.5 -7"
+                    model-viewer="gltfModel: #trophy"
+                    gesture-handler               
+                    clickhandler
+                ></a-entity>
+                
+
+            </a-entity>
+                      
+        </a-scene>
+                     
+    </body>
+
+</html>
 
