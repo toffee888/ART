@@ -166,7 +166,7 @@ AFRAME.registerComponent('model-viewer', {
   onTouchMove: function (evt) {
     if (evt.touches.length === 1) { this.onSingleTouchMove(evt); }
     if (evt.touches.length === 2) { this.dragModelTouch(evt); }
-    if (evt.touches.length === 3) { this.dragModelZ(evt); }
+    if (evt.touches.length === 3) { this.DRModelZ(evt); }
   },
 
   onSingleTouchMove: function (evt) {
