@@ -106,7 +106,6 @@ AFRAME.registerComponent('model-viewer', {
 
     modelEl.setAttribute('rotation', '0 -30 0');
     modelEl.setAttribute('animation-mixer', '');
-    modelEl.setAttribute('shadow', 'cast: true; receive: false');
     modelEl.setAttribute('class', 'clickable');
     modelEl.setAttribute('clickhandler');
     
@@ -114,14 +113,6 @@ AFRAME.registerComponent('model-viewer', {
     modelPivotEl.setAttribute('rotation', '0 0 0');
     
     modelPivotEl.appendChild(modelEl);
-
-    arShadowEl.setAttribute('rotation', '0 0 0');
-    arShadowEl.setAttribute('geometry', 'primitive: plane; width: 30.0; height: 30.0');
-    arShadowEl.setAttribute('shadow', 'recieve: true');
-    arShadowEl.setAttribute('ar-shadows', 'opacity: 1');
-    arShadowEl.setAttribute('visible', 'false');
-
-    modelPivotEl.appendChild(arShadowEl);
 
     lightEl.id = 'light';
     lightEl.setAttribute('position', '-2 4 2');
