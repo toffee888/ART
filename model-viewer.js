@@ -110,7 +110,7 @@ AFRAME.registerComponent('model-viewer', {
     modelEl.setAttribute('class', 'clickable');
     modelEl.setAttribute('clickhandler');
     
-    modelPivotEl.setAttribute('position', '0 0 -3');
+    modelPivotEl.setAttribute('position', '0 0 -5');
     modelPivotEl.setAttribute('rotation', '0 0 0');
     
     modelPivotEl.appendChild(modelEl);
