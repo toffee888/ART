@@ -109,10 +109,7 @@ AFRAME.registerComponent('model-viewer', {
     modelEl.setAttribute('shadow', 'cast: true; receive: false');
     modelEl.setAttribute('class', 'clickable');
     modelEl.setAttribute('clickhandler');
-    
-    modelPivotEl.setAttribute('position', '0 0 -5');
-    modelPivotEl.setAttribute('rotation', '0 0 0');
-    
+
     modelPivotEl.appendChild(modelEl);
 
     arShadowEl.setAttribute('rotation', '0 0 0');
@@ -168,8 +165,7 @@ AFRAME.registerComponent('model-viewer', {
 
   onTouchMove: function (evt) {
     if (evt.touches.length === 1) { this.onSingleTouchMove(evt); }
-    if (evt.touches.length === 2) { this.dragModelTouch(evt); }
-    if (evt.touches.length === 3) { this.DRModelZ(evt); }
+    if (evt.touches.length === 3) { this.dragModel2(evt); }
   },
 
   onSingleTouchMove: function (evt) {
@@ -226,7 +222,7 @@ AFRAME.registerComponent('model-viewer', {
     this.oldClientY = evt.clientY;
   },
   
-   dragModelTouch: function (evt) {
+   dragModel2: function (evt) {
     var dX;
     var dY;
     this.oldClientX = this.oldClientX || evt.touches[0].clientX;
@@ -242,22 +238,6 @@ AFRAME.registerComponent('model-viewer', {
     this.oldClientX = evt.touches[0].clientX;
 
   },
-  
-  DRModelZ: function (evt) {
-    var dX;
-    var dY;
-    this.oldClientX = this.oldClientX || evt.touches[0].clientX;
-    this.oldClientY = this.oldClientY || evt.touches[0].clientY;
-    var modelPivotEl = this.modelPivotEl;
-     
-    dX = this.oldClientX - evt.touches[0].clientX;
-    dY = this.oldClientY - evt.touches[0].clientY;
-     
-    modelPivotEl.object3D.position.z += dY / 200;
-    this.oldClientY = evt.touches[0].clientY;
-    modelPivotEl.object3D.rotation.x -= dX / 200;
-    this.oldClientX = evt.touches[0].clientX;
-  },
 
   rotateModel: function (evt) {
     var dX;
@@ -269,6 +249,8 @@ AFRAME.registerComponent('model-viewer', {
     modelPivotEl.object3D.rotation.y -= dX / 100;
     modelPivotEl.object3D.rotation.x -= dY / 200;
 
+    // Clamp x rotation to [-90,90]
+    modelPivotEl.object3D.rotation.x = Math.min(Math.max(-Math.PI / 2, modelPivotEl.object3D.rotation.x), Math.PI / 2);
 
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
@@ -324,5 +306,6 @@ AFRAME.registerComponent('model-viewer', {
   },
   
 });
+
 
 
